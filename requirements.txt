@@ -1,4 +1,4 @@
-django==1.72
+django==1.7.2
 django-jquery
 simplejson
 -e git+https://github.com/novapost/django-highcharts.git#egg=Reports
