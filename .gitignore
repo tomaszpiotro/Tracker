@@ -1,4 +1,5 @@
 local_static/
 .*
 !/.gitignore
+!.travis.yml
 *.pyc
