@@ -81,5 +81,4 @@ STATIC_ROOT = 'local_static/'
 STATIC_URL = '/local_static/'
 
 TEMPLATE_DIRS = (
-    '/home/sloth/Projects/inz/django/reports/reports_viewer/templates',
 )
