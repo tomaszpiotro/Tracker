@@ -27,3 +27,14 @@ class Series(models.Model):
 
     class Meta:
         app_label = "wow_charts"
+
+
+class Chart(models.Model):
+    title = models.CharField(
+        max_length=128,
+        verbose_name="title"
+    )
+    series = models.ManyToManyField(
+        Series,
+        verbose_name="series"
+    )
