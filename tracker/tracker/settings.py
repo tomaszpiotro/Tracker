@@ -40,9 +40,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'wow_server_online_tracker.urls'
+ROOT_URLCONF = 'tracker.urls'
 
-WSGI_APPLICATION = 'wow_server_online_tracker.wsgi.application'
+WSGI_APPLICATION = 'tracker.wsgi.application'
 
 
 # Database
