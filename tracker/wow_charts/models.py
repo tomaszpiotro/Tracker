@@ -30,5 +30,6 @@ class Chart(models.Model):
     )
     series = models.ManyToManyField(
         Series,
-        verbose_name="series"
+        verbose_name="series",
+        related_name="chart"
     )
