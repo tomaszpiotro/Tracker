@@ -15,18 +15,12 @@ class Probe(models.Model):
         related_name="probes"
     )
 
-    class Meta:
-        app_label = "wow_charts"
-
 
 class Series(models.Model):
     name = models.CharField(
         max_length=128,
         verbose_name="name"
     )
-
-    class Meta:
-        app_label = "wow_charts"
 
 
 class Chart(models.Model):

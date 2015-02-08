@@ -10,9 +10,6 @@ class Server(models.Model):
         verbose_name="website address"
     )
 
-    class Meta:
-        app_label = "servers"
-
 
 class Realm(models.Model):
     name = models.CharField(
@@ -24,6 +21,3 @@ class Realm(models.Model):
         verbose_name="server",
         related_name="realms"
     )
-
-    class Meta:
-        app_label = "servers"
