@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Probe(models.Model):
-    datetime = models.DateTimeField(
+    date = models.DateTimeField(
         verbose_name="datetime",
         auto_now_add=True
     )
