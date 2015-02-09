@@ -31,7 +31,7 @@ class Acquisition(models.Model):
         request = requests.get(self.url)
         parsed = BeautifulSoup(request.content)
         value = parsed.body.find(self.tag, attrs=self._prepare_attributes())
-        return value
+        return value.text
 
     def _prepare_attributes(self):
         result = {}
