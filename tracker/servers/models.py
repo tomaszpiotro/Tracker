@@ -1,5 +1,8 @@
 from django.db import models
 
+from charts.models import Probe, Series
+from acquisition.models import Acquisition
+
 
 class Server(models.Model):
     name = models.CharField(
@@ -21,3 +24,9 @@ class Realm(models.Model):
         verbose_name="server",
         related_name="realms"
     )
+
+
+class HttpSeries(Acquisition, Series):
+    def create_next_value(self):
+        probe = Probe.objects.create(value=self.get_data(), series=self)
+        return probe
