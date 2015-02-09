@@ -16,12 +16,14 @@ class Acquisition(models.Model):
     html_id = models.CharField(
         verbose_name="id",
         max_length=64,
-        null=True
+        null=True,
+        blank=True
     )
     html_class = models.CharField(
-        verbose_name="id",
+        verbose_name="class",
         max_length=64,
-        null=True
+        null=True,
+        blank=True
     )
 
     class Meta:
