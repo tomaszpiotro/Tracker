@@ -10,14 +10,17 @@ class Acquisition(models.Model):
     )
     tag = models.CharField(
         verbose_name="tag",
+        max_length=32,
         null=True
     )
     html_id = models.CharField(
         verbose_name="id",
+        max_length=64,
         null=True
     )
     html_class = models.CharField(
         verbose_name="id",
+        max_length=64,
         null=True
     )
 
