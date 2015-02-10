@@ -10,6 +10,9 @@ class Series(models.Model):
     def create_next_value(self):
         raise NotImplementedError
 
+    def __str__(self):
+        return self.name
+
 
 class Probe(models.Model):
     date = models.DateTimeField(
