@@ -5,3 +5,4 @@ from charts.models import Probe
 @admin.register(Probe)
 class HttpSeries(admin.ModelAdmin):
     list_display = ['date', 'value', 'series']
+    list_filter = ['series__name']
