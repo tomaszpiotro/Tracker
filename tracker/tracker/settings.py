@@ -34,7 +34,12 @@ INSTALLED_APPS = (
     'acquisition',
 
     'polymorphic',
+    'django_cron',
 )
+
+CRON_CLASSES = [
+    "servers.cron_jobs.HttpSeriesCronJob",
+]
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
