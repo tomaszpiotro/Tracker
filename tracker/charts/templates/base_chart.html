@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% block head %}
+    <script type="text/javascript" src = "{% static 'js/jquery.min.js' %} "></script>
+    <script type="text/javascript" src = "{% static 'js/highchart.js' %} "></script>
+    <script type="text/javascript" src = "{% static 'js/graph.js' %} "></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+{% endblock %}
+
+
+{% block content %}
+<div id={{ chartID|safe }} class="chart" style="height: 100px; width: 500px">chart</div>
+
+asdasdas
+<script>
+    var chart_id = {{ chartID|safe }}
+    var title = {{ title|safe }}
+    var xAxis = {{ xAxis|safe }}
+    var yAxis = {{ yAxis|safe }}
+    var series = {{ series|safe }}
+</script>
+
+<!-- Highchart js. Variable map shown above -->
+<script>
+$(document).ready(function() {
+    $(chart_id).highcharts({
+        chart: chart,
+        title: title,
+        xAxis: xAxis,
+        yAxis: yAxis,
+        series: series
+    });
+});
+</script>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script src="../static/graph.js"></script>
+{% endblock %}
+

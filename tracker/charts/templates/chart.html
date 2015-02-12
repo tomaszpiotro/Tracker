@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% load staticfiles %}
+{% block head %}
+    <title></title>
+    <script type="text/javascript" src = "{% static 'js/jquery.min.js' %} "></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+
+<script>
+    var chart_id = {{ chart_id|safe }};
+    var title = {{ title|safe }};
+    var xAxis = {{ xAxis|safe }};
+    var yAxis = {{ yAxis|safe }};
+    var type = {{ type|safe }}
+    var series = {{ series|safe }}
+</script>
+<script type="text/javascript" src = "{% static 'js/highchart.js' %} "></script>
+
+{% endblock %}
+
+
+{% block content %}
+
+{{ chart.title }}
+<div id="chart">chart</div>
+
+{% endblock %}
