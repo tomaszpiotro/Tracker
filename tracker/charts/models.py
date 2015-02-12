@@ -42,3 +42,15 @@ class Chart(models.Model):
         verbose_name="series",
         related_name="chart"
     )
+
+    def get_data(self, series_name):
+        result = "["
+        for probe in self.series.get(name=series_name).probes.all():
+            date = (str(probe.date.year) + ", " + str(probe.date.month) + ", "
+                    + str(probe.date.day) + ", " + str(probe.date.hour) + ", "
+                    + str(probe.date.minute) + ", " + str(probe.date.second))
+            date = "Date.UTC(" + str(date) + ")"
+            res = "[" + date + ", " + str(probe.value) + "], "
+            result += res
+        result += "]"
+        return result
