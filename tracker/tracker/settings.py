@@ -93,5 +93,11 @@ STATIC_ROOT = 'local_static/'
 
 STATIC_URL = '/local_static/'
 
-TEMPLATE_DIRS = (
+STATICFILES_DIRS = (
+    os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join(PROJECT_ROOT, 'charts', 'static'),
 )
+
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'local_static/')
+
+TEMPLATE_DIRS = (os.path.join(SETTINGS_ROOT, 'templates'),)
