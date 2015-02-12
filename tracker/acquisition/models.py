@@ -1,5 +1,6 @@
 from django.db import models
 
+import re
 import requests
 from bs4 import BeautifulSoup
 
@@ -33,6 +34,8 @@ class Acquisition(models.Model):
         request = requests.get(self.url)
         parsed = BeautifulSoup(request.content)
         value = parsed.body.find(self.tag, attrs=self._prepare_attributes())
+        if not value.text.isdigit():
+            return re.sub("[^0-9]", "", value.text)
         return value.text
 
     def _prepare_attributes(self):
