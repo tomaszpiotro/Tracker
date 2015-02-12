@@ -33,8 +33,10 @@ INSTALLED_APPS = (
     'charts',
     'acquisition',
 
-    'polymorphic',
     'django_cron',
+    'django_extensions',
+    'polymorphic',
+    'highcharts',
 )
 
 CRON_CLASSES = [
