@@ -28,6 +28,9 @@ class Probe(models.Model):
         related_name="probes"
     )
 
+    class Meta:
+        ordering = ['date']
+
 
 class Chart(models.Model):
     title = models.CharField(
