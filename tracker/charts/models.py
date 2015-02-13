@@ -31,6 +31,9 @@ class Probe(models.Model):
     class Meta:
         ordering = ['date']
 
+    def __str__(self):
+        return ", ".join([self.series.name, str(self.date), str(self.value)])
+
 
 class Chart(models.Model):
     title = models.CharField(
