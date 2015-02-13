@@ -16,11 +16,12 @@ class ChartDetailView(DetailView):
         context['yAxis'] = "'Y'"
         context['series'] = \
             "[" \
-            + "{ name: 'horde', data: " \
-            + chart.get_data("horde") + ", color: 'red' }" \
+            + "{name: 'total', data: " \
+            + chart.get_data('total') + ", color: 'grey' }" \
             + ",{ name: 'alliance', data: " \
             + chart.get_data('alliance') + ", color: 'blue'}" \
-            + ",{name: 'total', data: " \
-            + chart.get_data('total') + ", color: 'black' }" \
+            + ",{ name: 'horde', data: " \
+            + chart.get_data("horde") + ", color: 'red' }" \
             + "]"
+
         return context
