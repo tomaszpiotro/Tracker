@@ -81,7 +81,8 @@ class Chart(models.Model):
     )
     slug = models.SlugField(
         max_length=24,
-        verbose_name="slug"
+        verbose_name="slug",
+        default=""
     )
 
     def save(self, *args, **kwargs):
