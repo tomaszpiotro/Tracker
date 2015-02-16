@@ -1,4 +1,5 @@
 from django.db import models
+from django.template.defaultfilters import slugify
 from django.utils import timezone
 
 import datetime
@@ -78,6 +79,14 @@ class Chart(models.Model):
         max_length=32,
         verbose_name="y axis name"
     )
+    slug = models.SlugField(
+        max_length=24,
+        verbose_name="slug"
+    )
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.title)
+        super(Chart, self).save(*args, **kwargs)
 
     def get_chart_json(self):
         series_list = []

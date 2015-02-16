@@ -3,5 +3,5 @@ from charts.views import ChartDetailView
 
 urlpatterns = patterns(
     'charts.views',
-    url(r'(?P<pk>\d+)', ChartDetailView.as_view()),
+    url(r'(?P<slug>[-\w]*)/$', ChartDetailView.as_view()),
 )
