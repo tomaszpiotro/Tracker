@@ -1,7 +1,8 @@
 $(function () {
     $('#chart').highcharts({
         chart: {
-            type: type
+            type: type,
+            zoomType: 'x'
         },
         title: {
             text: title
