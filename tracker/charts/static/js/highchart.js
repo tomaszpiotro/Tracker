@@ -17,12 +17,12 @@ $(function () {
                 }
             },
             title: {
-                text: 'Date'
+                text: xAxis
             }
         },
         yAxis: {
             title: {
-                text: 'People online'
+                text: yAxis
             },
             min: 0
         },

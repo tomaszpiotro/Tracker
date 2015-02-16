@@ -9,11 +9,10 @@ class ChartDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(ChartDetailView, self).get_context_data(**kwargs)
         chart = context['chart']
-        context['chart_id'] = "'chart'"
-        context['type'] = "'line'"
-        context['title'] = "'" + str(chart.title) + "'"
-        context['xAxis'] = "'X'"
-        context['yAxis'] = "'Y'"
+        context['chart_id'] = 'chart'
+        context['type'] = chart.type
+        context['title'] = chart.title
+        context['xAxis'] = chart.x_axis_name
+        context['yAxis'] = chart.y_axis_name
         context['series'] = chart.get_chart_json()
-
         return context
