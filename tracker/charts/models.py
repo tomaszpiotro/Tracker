@@ -61,6 +61,18 @@ class Chart(models.Model):
         verbose_name="series",
         related_name="chart"
     )
+    type = models.CharField(
+        max_length=128,
+        verbose_name="type"
+    )
+    x_axis_name = models.CharField(
+        max_length=32,
+        verbose_name="x axis name"
+    )
+    y_axis_name = models.CharField(
+        max_length=32,
+        verbose_name="y axis name"
+    )
 
     def get_chart_json(self):
         series_list = []
