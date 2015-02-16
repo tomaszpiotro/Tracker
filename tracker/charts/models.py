@@ -1,4 +1,14 @@
 from django.db import models
+from django.utils import timezone
+
+import datetime
+import json
+import calendar
+
+
+def to_timestamp(dt):
+    stamp = calendar.timegm(dt.timetuple()) * 1000
+    return stamp
 
 
 class Series(models.Model):
