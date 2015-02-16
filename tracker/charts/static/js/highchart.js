@@ -40,3 +40,9 @@ $(function () {
         series: series
     });
 });
+
+Highcharts.setOptions({
+	global: {
+		useUTC: false
+	}
+});
