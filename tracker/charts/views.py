@@ -10,7 +10,9 @@ class ChartDetailView(DetailView):
     def get_queryset(self):
         return Chart.objects.filter(slug=self.kwargs['slug'])
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, hours=12, **kwargs):
+        if self.kwargs['hours']:
+            hours = int(self.kwargs['hours'])
         context = super(ChartDetailView, self).get_context_data(**kwargs)
         chart = context['chart']
         context['chart_id'] = 'chart'
@@ -18,5 +20,5 @@ class ChartDetailView(DetailView):
         context['title'] = chart.title
         context['xAxis'] = chart.x_axis_name
         context['yAxis'] = chart.y_axis_name
-        context['series'] = chart.get_chart_json()
+        context['series'] = chart.get_chart_json(hours=hours)
         return context

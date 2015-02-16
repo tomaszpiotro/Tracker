@@ -29,7 +29,7 @@ class Series(models.Model):
     def __str__(self):
         return self.name
 
-    def get_data(self, hours=24):
+    def get_data(self, hours):
         start = timezone.now() - datetime.timedelta(hours=hours)
         data = [[to_timestamp(probe.date), probe.value]
                 for probe in self.probes.all().filter(date__gt=start)]
@@ -89,12 +89,12 @@ class Chart(models.Model):
         self.slug = slugify(self.title)
         super(Chart, self).save(*args, **kwargs)
 
-    def get_chart_json(self):
+    def get_chart_json(self, hours):
         series_list = []
         for series in self.series.all():
             single_series = {}
             single_series.update({'name': series.name,
-                                  'data': series.get_data(),
+                                  'data': series.get_data(hours),
                                   'color': series.color})
             series_list.append(single_series)
         return json.dumps(series_list)
