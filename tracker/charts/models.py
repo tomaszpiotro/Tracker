@@ -62,15 +62,11 @@ class Chart(models.Model):
         related_name="chart"
     )
 
-    def get_data(self, series_name):
-        result = "["
-        for probe in self.series.get(name=series_name).probes.all():
-            date = (str(probe.date.year) + ", " + str(probe.date.month - 1)
-                    + ", " + str(probe.date.day) + ", " + str(probe.date.hour)
-                    + ", " + str(probe.date.minute) + ", "
-                    + str(probe.date.second))
-            date = "Date.UTC(" + str(date) + ")"
-            res = "[" + date + ", " + str(probe.value) + "], "
-            result += res
-        result += "]"
-        return result
+    def get_chart_json(self):
+        series_list = []
+        for series in self.series.all():
+            single_series = {}
+            single_series.update({'name': series.name,
+                                  'data': series.get_data()})
+            series_list.append(single_series)
+        return json.dumps(series_list)
