@@ -14,14 +14,6 @@ class ChartDetailView(DetailView):
         context['title'] = "'" + str(chart.title) + "'"
         context['xAxis'] = "'X'"
         context['yAxis'] = "'Y'"
-        context['series'] = \
-            "[" \
-            + "{name: 'total', data: " \
-            + chart.get_data('total') + ", color: 'grey' }" \
-            + ",{ name: 'alliance', data: " \
-            + chart.get_data('alliance') + ", color: 'blue'}" \
-            + ",{ name: 'horde', data: " \
-            + chart.get_data("horde") + ", color: 'red' }" \
-            + "]"
+        context['series'] = chart.get_chart_json()
 
         return context
