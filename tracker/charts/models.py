@@ -16,6 +16,11 @@ class Series(models.Model):
         max_length=128,
         verbose_name="name"
     )
+    color = models.CharField(
+        max_length=32,
+        verbose_name="color",
+        blank=True
+    )
 
     def create_next_value(self):
         raise NotImplementedError
@@ -79,6 +84,7 @@ class Chart(models.Model):
         for series in self.series.all():
             single_series = {}
             single_series.update({'name': series.name,
-                                  'data': series.get_data()})
+                                  'data': series.get_data(),
+                                  'color': series.color})
             series_list.append(single_series)
         return json.dumps(series_list)
