@@ -33,6 +33,7 @@ INSTALLED_APPS = (
     'charts',
     'acquisition',
 
+    'autofixture',
     'django_cron',
     'django_extensions',
     'polymorphic',
