@@ -8,9 +8,13 @@ $(function () {
         },
         xAxis: {
             type: 'datetime',
-            dateTimeLabelFormats: { // don't display the dummy year
-                month: '%e %B',
-                time: '%r'
+            labels : {
+                formatter: function() {
+                    var myDate = new Date(this.value);
+                    console.log(this.value);
+                    var newDateMs = Date.UTC(myDate.getUTCFullYear(),myDate.getUTCMonth(),myDate.getUTCDate());
+                    return Highcharts.dateFormat('%e. %b',newDateMs);
+                }
             },
             title: {
                 text: 'Date'
