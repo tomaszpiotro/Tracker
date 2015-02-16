@@ -11,7 +11,7 @@ class ChartDetailView(DetailView):
         return Chart.objects.filter(slug=self.kwargs['slug'])
 
     def get_context_data(self, hours=12, **kwargs):
-        if self.kwargs['hours']:
+        if 'hours' in self.kwargs:
             hours = int(self.kwargs['hours'])
         context = super(ChartDetailView, self).get_context_data(**kwargs)
         chart = context['chart']
