@@ -23,6 +23,12 @@ class Series(models.Model):
     def __str__(self):
         return self.name
 
+    def get_data(self, hours=24):
+        start = timezone.now() - datetime.timedelta(hours=hours)
+        data = [[to_timestamp(probe.date), probe.value]
+                for probe in self.probes.all().filter(date__gt=start)]
+        return data
+
 
 class Probe(models.Model):
     date = models.DateTimeField(
