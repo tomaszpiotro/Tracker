@@ -30,10 +30,17 @@ class Acquisition(models.Model):
     class Meta:
         abstract = True
 
-    def get_data(self):
+    def _get_text(self):
         request = requests.get(self.url)
         parsed = BeautifulSoup(request.content)
         value = parsed.body.find(self.tag, attrs=self._prepare_attributes())
+        return value
+
+    def extra_process(self, value):
+        return value
+
+    def get_data(self):
+        value = self.extra_process(self._get_text())
         if not value.text.isdigit():
             return re.sub("[^0-9]", "", value.text)
         return value.text
