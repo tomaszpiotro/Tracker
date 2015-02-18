@@ -7,14 +7,14 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('charts', '0005_series_color'),
+        ('charts', '0001_initial'),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='chart',
-            name='slug',
-            field=models.SlugField(default='atlantiss', max_length=24, verbose_name=b'slug'),
-            preserve_default=False,
+            model_name='series',
+            name='title',
+            field=models.CharField(max_length=128, verbose_name=b'title', blank=True),
+            preserve_default=True,
         ),
     ]

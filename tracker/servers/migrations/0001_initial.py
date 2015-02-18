@@ -7,24 +7,9 @@ from django.db import models, migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('charts', '0001_initial'),
     ]
 
     operations = [
-        migrations.CreateModel(
-            name='HttpSeries',
-            fields=[
-                ('series_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='charts.Series')),
-                ('url', models.URLField(verbose_name=b'url')),
-                ('tag', models.CharField(max_length=32, null=True, verbose_name=b'tag')),
-                ('html_id', models.CharField(max_length=64, null=True, verbose_name=b'id')),
-                ('html_class', models.CharField(max_length=64, null=True, verbose_name=b'id')),
-            ],
-            options={
-                'abstract': False,
-            },
-            bases=('charts.series', models.Model),
-        ),
         migrations.CreateModel(
             name='Realm',
             fields=[
