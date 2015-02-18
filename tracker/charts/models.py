@@ -22,6 +22,11 @@ class Series(models.Model):
         verbose_name="color",
         blank=True
     )
+    title = models.CharField(
+        max_length=128,
+        verbose_name="title",
+        blank=True
+    )
 
     def create_next_value(self):
         raise NotImplementedError
