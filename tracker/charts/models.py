@@ -2,6 +2,8 @@ from django.db import models
 from django.template.defaultfilters import slugify
 from django.utils import timezone
 
+from acquisition.models import Acquisition
+
 import datetime
 import json
 import calendar
@@ -103,3 +105,19 @@ class Chart(models.Model):
                                   'color': series.color})
             series_list.append(single_series)
         return json.dumps(series_list)
+
+
+class HttpSeries(Acquisition, Series):
+    def create_next_value(self):
+        probe = Probe.objects.create(value=self.get_data(), series=self)
+        return probe
+
+
+class NestedSeries(HttpSeries):
+    def extra_process(self, value):
+        return value.next
+
+
+class ThirdNextSibling(NestedSeries):
+    def extra_process(self, value):
+        return value.find_next_sibling().find_next_sibling().next

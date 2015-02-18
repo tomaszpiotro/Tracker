@@ -1,4 +1,4 @@
-from servers.models import HttpSeries
+from charts.models import HttpSeries
 
 from django_cron import CronJobBase, Schedule
 
