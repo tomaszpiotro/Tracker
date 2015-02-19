@@ -100,7 +100,7 @@ class Chart(models.Model):
         series_list = []
         for series in self.series.all():
             single_series = {}
-            single_series.update({'name': series.name,
+            single_series.update({'name': series.title,
                                   'data': series.get_data(hours),
                                   'color': series.color})
             series_list.append(single_series)
