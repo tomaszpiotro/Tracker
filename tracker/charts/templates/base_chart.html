@@ -13,15 +13,12 @@
 <div id={{ chartID|safe }} class="chart">chart</div>
 
 <script>
-    var chart_id = {{ chartID|safe }}
-    var title = {{ title|safe }}
-    var xAxis = {{ xAxis|safe }}
-    var yAxis = {{ yAxis|safe }}
-    var series = {{ series|safe }}
-</script>
+var chart_id = {{ chartID|safe }}
+var title = {{ title|safe }}
+var xAxis = {{ xAxis|safe }}
+var yAxis = {{ yAxis|safe }}
+var series = {{ series|safe }}
 
-<!-- Highchart js. Variable map shown above -->
-<script>
 $(document).ready(function() {
     $(chart_id).highcharts({
         chart: chart,
