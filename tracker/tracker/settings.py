@@ -29,9 +29,9 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'servers',
-    'charts',
     'acquisition',
+    'charts',
+    'servers',
 
     'autofixture',
     'django_cron',
