@@ -36,8 +36,8 @@ INSTALLED_APPS = (
     'autofixture',
     'django_cron',
     'django_extensions',
-    'polymorphic',
     'highcharts',
+    'polymorphic',
 )
 
 CRON_CLASSES = [
