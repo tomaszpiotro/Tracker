@@ -41,7 +41,7 @@ INSTALLED_APPS = (
 )
 
 CRON_CLASSES = [
-    "servers.cron_jobs.HttpSeriesCronJob",
+    "servers.cron_jobs.SeriesCronJob",
 ]
 
 MIDDLEWARE_CLASSES = (
