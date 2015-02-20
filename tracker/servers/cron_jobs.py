@@ -1,4 +1,4 @@
-from charts.models import HttpSeries
+from charts.models import Series
 
 from django_cron import CronJobBase, Schedule
 
@@ -9,5 +9,5 @@ class HttpSeriesCronJob(CronJobBase):
     code = "servers.cron.HttpSeriesCronJob"
 
     def do(self):
-        for series in HttpSeries.objects.all():
+        for series in Series.objects.all():
             series.create_next_value()

@@ -4,9 +4,10 @@ from django.utils import timezone
 
 from acquisition.models import Acquisition
 
+import calendar
 import datetime
 import json
-import calendar
+import polymorphic
 
 
 def to_timestamp(dt):
@@ -14,7 +15,7 @@ def to_timestamp(dt):
     return stamp
 
 
-class Series(models.Model):
+class Series(polymorphic.PolymorphicModel):
     name = models.CharField(
         max_length=128,
         verbose_name="name"
