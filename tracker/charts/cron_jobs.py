@@ -1,4 +1,4 @@
-from charts.models import Series
+from .models import Series
 
 from django_cron import CronJobBase, Schedule
 
