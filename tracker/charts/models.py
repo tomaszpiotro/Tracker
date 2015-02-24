@@ -7,7 +7,6 @@ from acquisition.models import Acquisition
 import calendar
 import datetime
 import json
-import polymorphic
 
 
 def to_timestamp(dt):
@@ -15,7 +14,7 @@ def to_timestamp(dt):
     return stamp
 
 
-class Series(polymorphic.PolymorphicModel):
+class Series(models.Model):
     name = models.CharField(
         max_length=128,
         verbose_name="name"
