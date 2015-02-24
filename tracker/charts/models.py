@@ -72,7 +72,7 @@ class Chart(models.Model):
     series = models.ManyToManyField(
         Series,
         verbose_name="series",
-        related_name="chart"
+        related_name="charts"
     )
     type = models.CharField(
         max_length=128,
